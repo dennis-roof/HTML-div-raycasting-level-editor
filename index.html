@@ -1,0 +1,93 @@
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<script type="text/javascript" src="src/helper.js"></script>
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> -->
+<script type="text/javascript" src="src/jquery.js"></script>
+<script type="text/javascript" src="src/objects.js"></script>
+<script type="text/javascript" src="src/raycaster.js"></script>
+<script type="text/javascript" src="src/minimap.js"></script>
+<script type="text/javascript" src="src/draw.js"></script>
+<script type="text/javascript" src="src/init.js"></script>
+
+<style>
+	#game {
+		float: left;
+	}
+	#view {
+		background-color: #000000; height: 480px; overflow: hidden; position: relative; width: 640px;
+	}
+	#editor{
+    	float: left;
+    	padding-left: 20px;
+	}
+    #grid{
+        width: 600px;
+        height: 200px;
+    }
+   
+    .square{
+        width: 10px;
+        height: 10px;
+        float: left;
+        background-color: black;
+        border: 1px solid #000;
+    }
+    
+    #menu {
+    }
+    .menu-item {
+    	border: 1px solid #fff;
+    	padding: 7px;
+    }
+    .menu-item span {
+    	padding-left: 7px;
+    }
+    .menu-item-icon {
+    	width: 20px;
+    	height: 20px;
+    	float: left;
+    }
+    
+</style>
+
+</head>
+<body>
+
+<div id="game">
+	<h2>HTML raycaster editor</h2>
+	<ul><strong>Features:</strong>
+	  <li>Real-time level editing (click inside the map)</li>
+	  <li>Dynamic moving lights</li>
+	  <li>Different height blocks</li>
+	  <li>Rendering with 100% divs and CSS, no canvas</li>
+	</ul>
+	<ul><strong>Controls:</strong>
+		<li>Move forward: W, arrow key up, click in middle or touch in middle</li>
+		<li>Move left: A, arrow key left, click in left area or touch in left area</li>
+		<li>Move right: D, arrow key right, click in right area or touch in right area</li>
+		<li>Jump: move over gap, jumps automatically</li>
+	</ul>
+	<br />
+	
+	<div id="view" width="640" height="480"></div>
+	<div id="control" style="top: 0px; left: 0px; height: 480px; position: absolute; width: 640px; z-index: 1;"></div>
+	
+	<h3>Level Code</h3>
+	<textarea id="level-code"></textarea>
+</div>
+
+<div id="editor">
+	<h2>Level Editor</h2>
+	<div id="menu">
+	  <strong>Step 1 - click on one of these blocks:</strong>
+	</div>
+	<hr />
+	<div id="grid">
+	  <p><strong>Step 2 - click inside minimap to place the block:</strong></p>
+	</div>
+</div>
+
+</body>
+</html>
+
